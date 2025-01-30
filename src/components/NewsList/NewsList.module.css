@@ -1,0 +1,9 @@
+.newsList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    row-gap: 30px;
+    list-style: none;
+    padding: 0;
+    width: 1300px;
+}

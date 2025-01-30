@@ -1,0 +1,33 @@
+.authNav {
+    display: flex;
+    gap: 1rem;
+}
+
+.navLink {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.navLink:hover {
+    color: #0070f3;
+}
+
+.active {
+    color: #0070f3;
+    font-weight: bold;
+}
+
+.homeAuthNav .navLink {
+    color: #988300 !important;
+    border: 2px solid #FF400F;
+    padding: 8px 24px;
+    border-radius: 40px;
+    transition: all 0.3s;
+}
+
+.homeAuthNav .navLink:hover {
+    background: #FF400F;
+    color: white !important;
+}

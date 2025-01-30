@@ -1,0 +1,21 @@
+.header {
+    background-color: #f8f9fa;
+    padding: 1rem 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.homeHeader {
+    background: #F6B83D;
+    border-bottom: none;
+    width: 1216px;
+    padding: 27px 64px 0px 64px;
+    z-index: 10;
+    border-top-left-radius: 60px;
+    border-top-right-radius: 60px;
+}
