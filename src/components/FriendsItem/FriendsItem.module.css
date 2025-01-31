@@ -1,0 +1,76 @@
+.friendItem {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 12px;
+    border: none;
+    border-radius: 15px;
+    background-color: #fff;
+    width: 371px;
+    height: 196px;
+}
+
+.logo {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    border-radius: 90px;
+    /* Закругленные углы изображения */
+}
+
+.title {
+    overflow: hidden;
+    color: #262626;
+    text-overflow: ellipsis;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 26px;
+    letter-spacing: -0.8px;
+}
+
+.workHours {
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 30px;
+    background: #FFF4DF;
+    align-self: flex-end;
+    color: #F6B83D;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: -0.28px;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.contact {
+    color: #0070f3;
+    text-decoration: none;
+    color: #262626;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: -0.28px;
+}
+
+.contact:hover {
+    text-decoration: underline;
+}
+
+.span {
+    color: rgba(38, 38, 38, 0.50);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: -0.28px;
+}

@@ -1,0 +1,69 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    /* Высота экрана */
+    text-align: center;
+    background-color: #f6b83d;
+    /* Оранжевый фон */
+}
+
+.errorCode {
+    display: flex;
+    align-items: center;
+    color: #FFF;
+    font-size: 300px;
+    font-weight: 800;
+    line-height: 300px;
+}
+
+.errorCode span {
+    margin: 0 20px;
+    /* Отступы между цифрами */
+}
+
+.errorCode img {
+    background: rgba(255, 255, 255, 0.10);
+    border-radius: 50%;
+}
+
+.title {
+    overflow: hidden;
+    color: #FFF;
+    text-overflow: ellipsis;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 28px;
+    letter-spacing: -0.72px;
+    margin: 40px 0px 20px 0px;
+}
+
+.description {
+    font-size: 1.5rem;
+    /* Размер текста описания */
+    margin-bottom: 20px;
+    /* Отступ снизу */
+    color: #fff;
+    /* Белый цвет */
+}
+
+.homeButton {
+    padding: 14px 30px;
+    border-radius: 30px;
+    background: #FFF4DF;
+    border: none;
+    cursor: pointer;
+    color: #F6B83D;
+    font-family: Manrope;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: -0.48px;
+}
+
+.homeButton:hover {
+    background: #FBE7C1;
+}

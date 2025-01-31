@@ -1,0 +1,118 @@
+.petBlock {
+    position: relative;
+    width: 592px;
+    height: 654px;
+    margin: 20px;
+}
+
+/* Ярко-желтый задний фон */
+.backgroundYellow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #F6B83D;
+    border-radius: 60px;
+    z-index: 0;
+}
+
+/* SVG-блок с бледно-желтым слоем */
+.lightYellow {
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    width: 572px;
+    height: 715px;
+}
+
+/* Собака */
+.petImage {
+    position: absolute;
+    bottom: 0;
+    right: 50px;
+}
+
+.petInfo {
+    position: absolute;
+    bottom: 100px;
+    left: 40px;
+    z-index: 3;
+    background: #FFFFFF;
+    padding: 16px;
+    border-radius: 20px;
+    width: 294px;
+    height: 121px;
+    border: none;
+    display: flex;
+}
+
+/* Кружок с маленькой собачкой */
+.petAvatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(255, 244, 223, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    z-index: 4;
+    padding: 12px;
+}
+
+/* Изображение собачки */
+.avatarImage {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+.petText {
+    margin-left: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.petTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+/* Имя питомца */
+.petName {
+    color: #F6B83D;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: -0.48px;
+}
+
+/* День рождения питомца */
+.petBirthday {
+    color: #262626;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 14px;
+    letter-spacing: -0.24px;
+    margin-left: auto;
+}
+
+/* Описание питомца */
+.petDescription {
+    color: rgba(38, 38, 38, 0.80);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 14px;
+    letter-spacing: -0.24px;
+}
+
+.span {
+    color: rgba(38, 38, 38, 0.50);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 14px;
+    letter-spacing: -0.24px;
+}
