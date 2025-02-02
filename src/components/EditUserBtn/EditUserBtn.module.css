@@ -1,0 +1,20 @@
+.editButton {
+    display: inline-flex;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 30px;
+    background: #FFF4DF;
+    border: none;
+    cursor: pointer;
+
+}
+
+
+.icon {
+    width: 18px;
+    height: 18px;
+    stroke: rgba(246, 184, 61, 1);
+    fill: rgba(246, 184, 61, 1)
+}

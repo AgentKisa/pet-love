@@ -17,18 +17,52 @@ export const loginUser = createAsyncThunk(
   }
 );
 
-export const authSlice = createSlice({
+// Async thunk для выхода из системы
+export const logoutUser = createAsyncThunk(
+  "auth/logoutUser",
+  async (_, { getState, rejectWithValue }) => {
+    try {
+      const token = getState().auth.token; // Получаем токен из состояния Redux
+      if (!token) {
+        throw new Error("No token available");
+      }
+
+      const response = await axios.post(
+        "https://petlove.b.goit.study/api/users/signout",
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      console.log(response.data.message); // Отладочное сообщение
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(
+        error.response ? error.response.data : "Sign out failed"
+      );
+    }
+  }
+);
+
+// Инициализация состояния с проверкой localStorage
+const initialState = {
+  user: null,
+  token: typeof window !== "undefined" ? localStorage.getItem("token") : null,
+  status: "idle",
+  error: null,
+};
+
+const authSlice = createSlice({
   name: "auth",
-  initialState: {
-    user: null,
-    token: null,
-    status: "idle",
-    error: null,
-  },
+  initialState,
   reducers: {
     logout: (state) => {
       state.user = null;
       state.token = null;
+      localStorage.removeItem("token");
     },
   },
   extraReducers: (builder) => {
@@ -40,10 +74,22 @@ export const authSlice = createSlice({
         state.status = "succeeded";
         state.user = action.payload;
         state.token = action.payload.token;
+        localStorage.setItem("token", action.payload.token);
       })
       .addCase(loginUser.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.payload.message;
+      })
+      .addCase(logoutUser.fulfilled, (state) => {
+        state.user = null;
+        state.token = null;
+        localStorage.removeItem("token");
+      })
+      .addCase(logoutUser.rejected, (state, action) => {
+        state.user = null;
+        state.token = null;
+        state.error = action.payload;
+        localStorage.removeItem("token");
       });
   },
 });

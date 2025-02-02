@@ -1,0 +1,159 @@
+.modalContent {
+    border-radius: 30px;
+    background: #FFF;
+    padding: 50px;
+    width: 480px;
+    height: 580px;
+    max-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.closeBtn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.closeIcon {
+    width: 24px;
+    height: 24px;
+    stroke: #000000;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.formGroup {
+    margin-bottom: 15px;
+}
+
+
+.formGroup input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 30px;
+    box-sizing: border-box;
+    border: 1px solid #F6B83D;
+    background-color: transparent;
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+}
+
+/* Блок загрузки аватара */
+.avatarPreview {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.previewImage {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.placeholder {
+    width: 100px;
+    height: 100px;
+    background: #ddd;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+    font-size: 12px;
+}
+
+.avatarUpload {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.avatarInput {
+    flex-grow: 1;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #F6B83D;
+    border-radius: 5px;
+}
+
+.fileInput {
+    display: none;
+}
+
+.uploadBtn {
+    border-radius: 30px;
+    background: #FFF4DF;
+    color: white;
+    border: none;
+    padding: 12px 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 146px;
+    height: 42px;
+
+}
+
+.uploadText {
+    color: #262626;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: -0.28px;
+    margin-right: 8px;
+}
+
+.saveBtn {
+    background: #F6B83D;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 30px;
+    margin-top: 20px;
+}
+
+.userIcon {
+    width: 100px;
+    height: 100px;
+    background: #FFF4DF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFF;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: -0.48px;
+}
+
+.uploadIcon {
+    width: 18px;
+    height: 18px;
+}

@@ -9,7 +9,8 @@ import { useRouter } from "next/navigation";
 import styles from "./RegistrationForm.module.css";
 import Link from "next/link";
 import Title from "../Title/Title";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { loginUser } from "@/redux/authSlice";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required("Name is required"),
@@ -31,6 +32,7 @@ const validationSchema = Yup.object().shape({
 const RegistrationForm = () => {
   const dispatch = useDispatch();
   const { status, error } = useSelector((state) => state.register);
+  const authStatus = useSelector((state) => state.auth.status);
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
 
@@ -44,10 +46,17 @@ const RegistrationForm = () => {
     mode: "onChange",
   });
 
+  useEffect(() => {
+    if (authStatus === "succeeded") {
+      router.push("/profile"); // Переадресация на страницу профиля после успешной авторизации
+    }
+  }, [authStatus, router]);
+
   const onSubmit = async (data) => {
     const resultAction = await dispatch(registerUser(data));
     if (registerUser.fulfilled.match(resultAction)) {
-      router.push("/profile"); // Переадресация на страницу профиля
+      // После успешной регистрации автоматически авторизуем пользователя
+      dispatch(loginUser({ email: data.email, password: data.password }));
     } else {
       alert(resultAction.payload); // Показ уведомления об ошибке
     }

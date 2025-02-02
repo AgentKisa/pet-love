@@ -1,0 +1,87 @@
+.closeBtn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.catImage {
+    width: 44px;
+    height: 44px;
+}
+
+.title {
+    overflow: hidden;
+    color: #262626;
+    text-overflow: ellipsis;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 28px;
+    letter-spacing: -0.72px;
+    margin-bottom: 28px;
+    margin-top: 20px;
+}
+
+.actions {
+    display: flex;
+    gap: 20px;
+}
+
+.confirmBtn {
+    padding: 14px 57px;
+    border-radius: 30px;
+    background: #F6B83D;
+    color: #FFF;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: -0.48px;
+    border: none;
+    cursor: pointer;
+    font-style: normal;
+}
+
+.cancelBtn {
+    padding: 14px 44px;
+    border-radius: 30px;
+    background: rgba(38, 38, 38, 0.05);
+    color: #262626;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: -0.48px;
+    border: none;
+    cursor: pointer;
+}
+
+.modalContent {
+    border-radius: 30px;
+    background: #FFF;
+    padding: 80px;
+    width: 448px;
+    height: 364px;
+    max-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.closeIcon {
+    width: 24px;
+    height: 24px;
+    stroke: #000000;
+}
+
+.catContainer {
+    padding: 18px;
+    background: #FFF4DF;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+}

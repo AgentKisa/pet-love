@@ -3,6 +3,7 @@ import newsReducer from "./newsSlice";
 import friendsReducer from "./friendsSlice";
 import authReducer from "./authSlice";
 import registerReducer from "./registerSlice";
+import userReducer from "./userSlice";
 
 export const store = configureStore({
   reducer: {
@@ -10,5 +11,6 @@ export const store = configureStore({
     friends: friendsReducer,
     auth: authReducer,
     register: registerReducer,
+    user: userReducer,
   },
 });

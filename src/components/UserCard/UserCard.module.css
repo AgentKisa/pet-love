@@ -1,0 +1,140 @@
+.userCard {
+    width: 520px;
+    height: 674px;
+    padding: 40px;
+    border-radius: 60px;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.headerContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.userIcon {
+    width: 100px;
+    height: 100px;
+    background: #FFF4DF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    color: #ffffff;
+}
+
+.editIcon {
+    width: 50px;
+    height: 50px;
+    background: #f5a623;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.infoSection {
+    width: 100%;
+}
+
+.infoSection h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.inputGroup {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.inputGroup label {
+    font-weight: bold;
+    color: #666;
+}
+
+.inputGroup input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+.logoutBtn {
+    width: 100%;
+    padding: 15px;
+    background: #f5a623;
+    color: #ffffff;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background 0.3s;
+}
+
+.logoutBtn:hover {
+    background: #d4941c;
+}
+
+.title {
+    display: inline-flex;
+    padding: 10px 14px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    border-radius: 30px;
+    background: #F6B83D;
+    color: #FFF;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: -0.28px;
+    width: 80px;
+    height: 38px;
+}
+
+.icon {
+    width: 18px;
+    height: 18px;
+}
+
+.icon2 {
+    width: 50px;
+    height: 50px;
+}
+
+.uploadBtn {
+    color: #262626;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: -0.28px;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: none;
+    text-decoration-thickness: auto;
+    text-underline-offset: auto;
+    text-underline-position: from-font;
+    background: none;
+    border: none;
+}
+
+.avatar {
+    display: flex;
+    flex-direction: column;
+}

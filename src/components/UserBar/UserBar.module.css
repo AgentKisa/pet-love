@@ -1,0 +1,44 @@
+.userBar {
+    display: flex;
+    align-items: center;
+}
+
+.profileLink {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #000;
+    gap: 8px;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.userName {
+    color: #262626;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: -0.6px;
+}
+
+.userIcon {
+    width: 50px;
+    height: 50px;
+    background: #FFF4DF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    color: #ffffff;
+}
+
+.icon2 {
+    width: 24px;
+    height: 24px;
+}

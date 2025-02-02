@@ -1,0 +1,32 @@
+.addPetContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.addPetButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    width: 118px;
+    height: 40px;
+    padding: 10px 20px;
+    background-color: #F6B83D;
+    color: #FFF;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: -0.48px;
+    border-radius: 30px;
+    text-decoration: none;
+
+}
+
+.addPetIcon {
+    width: 18px;
+    height: 18px;
+    fill: #fff;
+}
