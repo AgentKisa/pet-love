@@ -1,0 +1,141 @@
+.listContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    justify-content: center;
+
+}
+
+.noticeItem {
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    width: 363px;
+    height: 472px;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.noticeItem:hover {
+    transform: scale(1.02);
+}
+
+.noticeImage {
+    width: 315px;
+    height: 178px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.noticeInfo {
+    flex: 1;
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+.noticeTitle {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.noticeLine {
+    display: flex;
+    margin-bottom: 16px;
+    justify-content: space-between;
+}
+
+.noticeText {
+    color: #262626;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 14px;
+    letter-spacing: -0.24px;
+    display: flex;
+    flex-direction: column;
+}
+
+.noticeHeader {
+    display: flex;
+    justify-content: space-between;
+}
+
+.span {
+    color: rgba(38, 38, 38, 0.50);
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 14px;
+    letter-spacing: -0.2px;
+}
+
+.noticeDescription {
+    overflow: hidden;
+    color: #2B2B2A;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: -0.28px;
+    margin-bottom: 24px;
+}
+
+.noticePrice {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+    margin-top: auto;
+}
+
+.noticeActions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+}
+
+.learnMore {
+    border-radius: 30px;
+    background: #F6B83D;
+    padding: 14px 89px;
+    border: none;
+    cursor: pointer;
+    color: #FFF;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: -0.48px;
+}
+
+.learnMore:hover {
+    background-color: #e0a800;
+}
+
+.favoriteButton {
+    border: none;
+    cursor: pointer;
+    border-radius: 30px;
+    background: #FFF4DF;
+    padding: 15px;
+    width: 48px;
+    height: 48px;
+}
+
+.noticePopularity {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.favoriteButton:hover {
+    color: #e0a800;
+}
+
+.favoriteIcon {
+    width: 18px;
+    height: 18px;
+}

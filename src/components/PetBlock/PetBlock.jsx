@@ -10,6 +10,7 @@ const PetBlock = ({
   birthday,
   description,
   miniImgSrc,
+  showPetInfo = true, // Новый пропс для контроля отображения petInfo
 }) => {
   return (
     <div className={styles.petBlock}>
@@ -24,20 +25,22 @@ const PetBlock = ({
         height={imgHeight}
         className={styles.petImage}
       />
-      <div className={styles.petInfo}>
-        <div className={styles.petAvatar}>
-          <img src={miniImgSrc} alt="Avatar" className={styles.avatarImage} />
-        </div>
-        <div className={styles.petText}>
-          <div className={styles.petTitle}>
-            <p className={styles.petName}>{name}</p>
-            <p className={styles.petBirthday}>
-              <span className={styles.span}>Birthday:</span> {birthday}
-            </p>
+      {showPetInfo && ( // Условие рендеринга для petInfo
+        <div className={styles.petInfo}>
+          <div className={styles.petAvatar}>
+            <img src={miniImgSrc} alt="Avatar" className={styles.avatarImage} />
           </div>
-          <p className={styles.petDescription}>{description}</p>
+          <div className={styles.petText}>
+            <div className={styles.petTitle}>
+              <p className={styles.petName}>{name}</p>
+              <p className={styles.petBirthday}>
+                <span className={styles.span}>Birthday:</span> {birthday}
+              </p>
+            </div>
+            <p className={styles.petDescription}>{description}</p>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

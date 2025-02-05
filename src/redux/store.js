@@ -4,6 +4,8 @@ import friendsReducer from "./friendsSlice";
 import authReducer from "./authSlice";
 import registerReducer from "./registerSlice";
 import userReducer from "./userSlice";
+import petReducer from "./petSlice";
+import noticesReducer from "./noticesSlice";
 
 export const store = configureStore({
   reducer: {
@@ -12,5 +14,7 @@ export const store = configureStore({
     auth: authReducer,
     register: registerReducer,
     user: userReducer,
+    pets: petReducer,
+    notices: noticesReducer,
   },
 });

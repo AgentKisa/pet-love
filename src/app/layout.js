@@ -2,6 +2,7 @@ import { Manrope } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header/Header";
 import ClientProvider from "@/components/ClientProvider/ClientProvider";
+import { Toaster } from "react-hot-toast";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -19,6 +20,7 @@ export default function RootLayout({ children }) {
       <body className={`${manrope.variable}`}>
         <ClientProvider>
           <Header />
+          <Toaster />
           {children}
         </ClientProvider>
       </body>

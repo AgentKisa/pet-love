@@ -1,0 +1,111 @@
+.filtersContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 40px 40px;
+    border-radius: 30px;
+    background: #FFF4DF;
+    margin-bottom: 20px;
+    margin-top: 40px;
+    justify-content: center;
+}
+
+
+.select {
+    width: 200px;
+    height: 48px;
+    padding: 14px 0px 14px 14px;
+    font-size: 16px;
+    border: 1px solid rgba(245, 146, 86, 0.5);
+    border-radius: 30px;
+    background: #fff;
+    color: #262626;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: -0.48px;
+}
+
+.locationSelect {
+    flex: 1;
+    min-width: 200px;
+}
+
+
+.resetButton:hover {
+    background-color: #d17948;
+}
+
+.searchIcon {
+    width: 18px;
+    height: 18px;
+    stroke: #262626;
+    fill: none;
+}
+
+/* Контейнер строки фильтров */
+.filterRow {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+/* Убираем фон у label – фон задаем для span */
+.checkboxLabel {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Стили для текстового блока, который выглядит как кнопка */
+.checkboxLabel span {
+    display: flex;
+    padding: 14px 20px;
+    border-radius: 30px;
+    background: #ffffff;
+    color: #262626;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: -0.48px;
+    align-items: center;
+    align-content: center;
+    gap: 8px;
+}
+
+/* Скрываем стандартный чекбокс */
+.customCheckbox {
+    display: none;
+}
+
+/* При активном состоянии изменяем фон и цвет текста */
+.customCheckbox:checked+span {
+    background: #F6B83D;
+    color: #ffffff;
+}
+
+.filterRowContainer {
+    display: flex;
+    gap: 8px;
+
+}
+
+.filterRowContainer2 {
+    display: flex;
+    gap: 14px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(38, 38, 38, 0.10);
+
+}
+
+.resetButton {
+    padding: 14px 20px;
+    border-radius: 30px;
+    background: yellow;
+    color: #262626;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: -0.48px;
+}

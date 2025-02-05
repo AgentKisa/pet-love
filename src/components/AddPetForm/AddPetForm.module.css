@@ -1,0 +1,386 @@
+.formContainer {
+    width: 592px;
+    height: 654px;
+    padding: 60px 80px;
+    border-radius: 60px;
+    background: #FFF;
+}
+
+.formTitle {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.field {
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+.fieldSex {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Стили для DatePicker и иконки календаря */
+
+.field input[type="text"],
+.field input[type="email"],
+.field input[type="birthday"] {
+    padding: 16px 0px 16px 16px;
+    color: black;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: -0.48px;
+    border-radius: 30px;
+    border: 1px solid rgba(38, 38, 38, 0.15);
+
+}
+
+.field input[type="text"]::placeholder {
+    color: rgba(38, 38, 38, 0.50);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: -0.48px;
+}
+
+.field2 {
+    width: 210px;
+    position: relative;
+    padding: 16px 0 16px 16px;
+    color: #26262680;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: -.48px;
+    border-radius: 30px;
+    border: 1px solid #26262626;
+}
+
+
+/* Стили для выпадающего списка вида питомца */
+.select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid rgba(38, 38, 38, 0.15);
+    background-color: white;
+    cursor: pointer;
+}
+
+/* Контейнер списка */
+.selectContainer {
+    position: relative;
+}
+
+/* Выпадающий список */
+.selectDropdown {
+    position: absolute;
+    width: 100%;
+    max-height: 150px;
+    overflow-y: auto;
+    background: white;
+    border: 1px solid rgba(38, 38, 38, 0.15);
+    border-radius: 5px;
+    display: none;
+}
+
+/* Отображение списка при активации */
+.selectContainer.active .selectDropdown {
+    display: block;
+}
+
+.radioGroup {
+    display: flex;
+    gap: 8px;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    gap: 8px;
+}
+
+.submitButton {
+    border-radius: 30px;
+    background: #F6B83D;
+    color: #FFF;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: -0.48px;
+    border: none;
+    padding: 14px 58px;
+    cursor: pointer;
+}
+
+.backButton {
+    border-radius: 30px;
+    background: rgba(38, 38, 38, 0.05);
+    color: #262626;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: -0.48px;
+    border: none;
+    padding: 14px 67px;
+    cursor: pointer;
+}
+
+/* Стили для загрузки аватара */
+.avatarUpload {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.avatarInput {
+    flex-grow: 1;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.fileInput {
+    display: none;
+}
+
+.uploadBtn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+}
+
+.uploadBtn svg {
+    margin-right: 8px;
+}
+
+.radioLabel {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+    transition: border 0.3s ease;
+}
+
+.hiddenRadio {
+    display: none;
+}
+
+.sexIcon {
+    width: 24px;
+    height: 24px;
+}
+
+/* Стили для каждого варианта пола */
+.radioLabel.male {
+    border-radius: 30px;
+    background: rgba(84, 173, 255, 0.10);
+}
+
+.radioLabel.male.selected {
+    border-radius: 30px;
+    background: #54ADFF;
+}
+
+.radioLabel.female {
+    border-radius: 30px;
+    background: rgba(244, 63, 94, 0.10);
+}
+
+.radioLabel.female.selected {
+    border-radius: 30px;
+    background: #F43F5E;
+}
+
+.radioLabel.multiple {
+    border-radius: 30px;
+    background: #FFF4DF;
+}
+
+.radioLabel.multiple.selected {
+    border-radius: 30px;
+    background: #F6B83D;
+}
+
+.datePickerContainer {
+    position: relative;
+    display: inline-block;
+    width: 210px;
+}
+
+.datePicker {
+    border: none;
+}
+
+.datePickerHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* или space-around, space-evenly */
+    padding: 10px;
+    /* добавьте желаемые отступы */
+}
+
+.calendarIcon {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    right: 40px;
+    top: 0px;
+    position: absolute;
+    fill: none;
+    stroke: #333;
+    /* Указываем, что это иконка календаря */
+}
+
+/* Стили для кнопки < и > (опционально) */
+.datePickerHeader button {
+    background: none;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.avatarPreview {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 18px;
+}
+
+.previewImage {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.placeholder {
+    width: 100px;
+    height: 100px;
+    background: #ddd;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+    font-size: 12px;
+}
+
+.avatarUpload {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.avatarInput {
+    flex-grow: 1;
+    padding: 12px;
+    border-radius: 30px;
+    border: 1px solid rgba(38, 38, 38, 0.15);
+}
+
+.fileInput {
+    display: none;
+}
+
+.uploadBtn {
+    border-radius: 30px;
+    background: #FFF4DF;
+    color: #262626;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: -0.28px;
+    border: none;
+    padding: 12px 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 146px;
+    height: 42px;
+
+}
+
+.uploadText {
+    color: #262626;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: -0.28px;
+    margin-right: 8px;
+}
+
+
+.userIcon {
+    width: 86px;
+    height: 86px;
+    background: #FFF4DF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFF;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: -0.48px;
+}
+
+.uploadIcon {
+    width: 18px;
+    height: 18px;
+}
+
+.icon2 {
+    width: 44px;
+    height: 44px;
+}
+
+.span {
+    color: rgba(43, 43, 42, 0.40);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+}
+
+.fieldContainer {
+    display: flex;
+    height: 52px;
+    gap: 12px;
+}
