@@ -1,9 +1,12 @@
 "use client";
 import Modal from "react-modal";
-import styles from "./ModalApproveAction.module.css";
+import styles from "./ModalAttention.module.css";
 import React from "react";
+import { useRouter } from "next/navigation"; // Импортируем useRouter
 
-const ModalApproveAction = ({ isOpen, onRequestClose, onConfirm }) => {
+const ModalAttention = ({ isModalOpen, onClose }) => {
+  const router = useRouter(); // Используем хук useRouter
+
   React.useEffect(() => {
     Modal.setAppElement("body");
   }, []);
@@ -28,35 +31,48 @@ const ModalApproveAction = ({ isOpen, onRequestClose, onConfirm }) => {
       background: "none",
     },
   };
+
+  const handleLogin = () => {
+    router.push("/login");
+    onClose();
+  };
+
+  const handleRegistration = () => {
+    router.push("/register");
+    onClose();
+  };
+
   return (
     <Modal
-      isOpen={isOpen}
-      onRequestClose={onRequestClose}
+      isOpen={isModalOpen}
+      onRequestClose={onClose}
       style={customStyles}
       overlayClassName={styles.overlay}
       shouldCloseOnOverlayClick={true}
       shouldCloseOnEsc={true}
     >
       <div className={styles.modalContent}>
-        <button className={styles.closeBtn} onClick={onRequestClose}>
+        <button className={styles.closeBtn} onClick={onClose}>
           <svg className={styles.closeIcon}>
             <use href="/sprite.svg#icon-x-1"></use>
           </svg>
         </button>
         <div className={styles.catContainer}>
-          <img
-            src="/img/cat-logout.png"
-            alt="Cat"
-            className={styles.catImage}
-          />
+          <img src="/img/pappy.png" alt="Cat" className={styles.catImage} />
         </div>
-        <h2 className={styles.title}>Already leaving?</h2>
+        <h2 className={styles.title}>Attention</h2>
+        <p className={styles.message}>
+          We would like to remind you that certain functionality is available
+          only to authorized users. If you have an account, please log in with
+          your credentials. If you do not already have an account, you must
+          register to access these features.
+        </p>
         <div className={styles.actions}>
-          <button className={styles.confirmBtn} onClick={onConfirm}>
-            login
+          <button className={styles.confirmBtn} onClick={handleLogin}>
+            Log In
           </button>
-          <button className={styles.cancelBtn} onClick={onRequestClose}>
-            registration
+          <button className={styles.cancelBtn} onClick={handleRegistration}>
+            Registration
           </button>
         </div>
       </div>
@@ -64,4 +80,4 @@ const ModalApproveAction = ({ isOpen, onRequestClose, onConfirm }) => {
   );
 };
 
-export default ModalApproveAction;
+export default ModalAttention;

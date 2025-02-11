@@ -5,6 +5,20 @@ body {
   margin: 0 auto;
 }
 
+body.ReactModal__Body--open {
+  overflow: hidden;
+}
+
+.ReactModal__Overlay {
+  overflow: auto;
+  z-index: 10;
+}
+
+.ReactModal__Content {
+  z-index: 11;
+  overflow: auto;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;

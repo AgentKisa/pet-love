@@ -1,6 +1,15 @@
+import ModalAttention from "../ModalAttention/ModalAttention";
+import ModalNotice from "../ModalNotice/ModalNotice";
 import styles from "./NoticesItem.module.css";
 
-const NoticesItem = ({ notices }) => {
+const NoticesItem = ({
+  notices,
+  closeModal,
+  handleLearnMoreClick,
+  isModalOpen,
+  modalType,
+  noticeId,
+}) => {
   return (
     <div className={styles.listContainer}>
       {notices.length === 0 ? (
@@ -48,7 +57,13 @@ const NoticesItem = ({ notices }) => {
               </p>
             </div>
             <div className={styles.noticeActions}>
-              <button className={styles.learnMore}>Learn more</button>
+              <button
+                className={styles.learnMore}
+                type="button"
+                onClick={() => handleLearnMoreClick(notice._id)}
+              >
+                Learn more
+              </button>
               <button className={styles.favoriteButton}>
                 <svg className={styles.favoriteIcon}>
                   <use href="/sprite.svg#icon-heart-1"></use>
