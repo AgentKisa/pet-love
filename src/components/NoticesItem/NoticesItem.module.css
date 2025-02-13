@@ -37,10 +37,19 @@
 }
 
 .noticeTitle {
-    font-size: 20px;
-    font-weight: bold;
-    color: #333;
+    color: #2B2B2A;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
     margin-bottom: 8px;
+    white-space: nowrap;
+    /* Запрещает перенос строк */
+    overflow: hidden;
+    /* Скрывает лишний текст */
+    text-overflow: ellipsis;
+    /* Добавляет многоточие */
+    max-width: 100%;
+
 }
 
 .noticeLine {
@@ -62,6 +71,7 @@
 .noticeHeader {
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
 }
 
 .span {

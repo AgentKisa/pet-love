@@ -34,7 +34,7 @@ const NoticesPage = () => {
 
   return (
     <div className={styles.container}>
-      <Title text="Find your favorite pet" />
+      <Title text="Find your favorite pet" className={styles.title} />
       <NoticesFilters onFilterChange={handleFilterChange} />
       {loading ? (
         <p>Loading notices...</p>

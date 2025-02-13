@@ -12,7 +12,6 @@ const NoticesList = ({ notices }) => {
   const token = useSelector((state) => state.auth.token);
   const [selectedNoticeId, setSelectedNoticeId] = useState(null);
 
-  /*************  ✨ Codeium Command 🌟  *************/
   const handleLearnMoreClick = (id) => {
     setSelectedNoticeId(id);
     setIsModalOpen(true);
@@ -22,7 +21,7 @@ const NoticesList = ({ notices }) => {
       setModalType("attention");
     }
   };
-  /******  fb896aef-525b-4e79-9630-2e5696f2f576  *******/
+  
   const closeModal = () => {
     console.log("Closing modal");
     setIsModalOpen(false);

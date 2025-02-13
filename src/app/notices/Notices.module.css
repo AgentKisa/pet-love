@@ -1,4 +1,8 @@
 .container {
     margin: 0 auto;
-    padding: 20px;
+    padding: 96px 32px;
+}
+
+.title {
+    padding-left: 32px;
 }

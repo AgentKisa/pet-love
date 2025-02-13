@@ -2,8 +2,14 @@
 import React, { useEffect, useRef } from "react";
 import Modal from "react-modal";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchNoticeById, clearNotice } from "@/redux/noticesSlice";
+import {
+  fetchNoticeById,
+  clearNotice,
+  removeFavorite,
+  addFavorite,
+} from "@/redux/noticesSlice";
 import styles from "./ModalNotice.module.css";
+import { fetchUserData } from "@/redux/userSlice";
 
 const ModalNotice = ({ isOpen, onClose, noticeId }) => {
   React.useEffect(() => {
@@ -12,10 +18,17 @@ const ModalNotice = ({ isOpen, onClose, noticeId }) => {
 
   const dispatch = useDispatch();
   const token = useSelector((state) => state.auth.token);
-  const { notice, loading, error } = useSelector((state) => state.notices);
+  const { notice, loadingID, error } = useSelector((state) => state.notices);
   const prevNoticeId = useRef(null);
+  const maxStars = 5;
+  const filledStars = Math.min(notice?.popularity || 0, maxStars);
+  const emptyStars = maxStars - filledStars;
+  const userData = useSelector((state) => state.user.userData);
+  const favorites = userData?.noticesFavorites || [];
+  const isFavorite = notice
+    ? favorites.some((fav) => fav._id === notice._id)
+    : false;
 
-  console.log("nitice", notice, loading, error);
   console.log("token", token);
 
   useEffect(() => {
@@ -42,11 +55,34 @@ const ModalNotice = ({ isOpen, onClose, noticeId }) => {
       padding: "0px",
       maxWidth: "90vw",
       zIndex: 1001,
-      background: "white", // Добавляем фон
+      background: "white",
     },
   };
 
-  console.log("notice2", notice);
+  const handleFavoriteToggle = () => {
+    if (!token || !notice) return;
+    if (isFavorite) {
+      dispatch(removeFavorite({ id: notice._id, token })).then(() => {
+        dispatch(fetchUserData());
+      });
+    } else {
+      dispatch(addFavorite({ id: notice._id, token })).then(() => {
+        dispatch(fetchUserData());
+      });
+    }
+  };
+
+  const [isEmailButtonActive, setIsEmailButtonActive] = React.useState(false); // Добавляем состояние
+
+  const handleContactButtonClick = () => {
+    // Добавляем обработчик клика
+    setIsEmailButtonActive(true); // При клике устанавливаем состояние в true, чтобы отобразить email
+
+    if (!isEmailButtonActive && notice.user?.email) {
+      // Проверяем, что кнопка только что стала активной и email есть
+      window.location.href = `mailto:${notice.user.email}`; // Открываем почтовую программу
+    }
+  };
 
   return (
     <Modal
@@ -64,7 +100,7 @@ const ModalNotice = ({ isOpen, onClose, noticeId }) => {
           </svg>
         </button>
 
-        {loading ? (
+        {loadingID ? (
           <p>Loading...</p>
         ) : error ? (
           <p className={styles.error}>
@@ -72,29 +108,85 @@ const ModalNotice = ({ isOpen, onClose, noticeId }) => {
           </p>
         ) : notice ? (
           <>
-            <img
-              src={notice.imgURL || "/img/pappy.png"}
-              alt={notice.title}
-              className={styles.image}
-            />
-            <h2 className={styles.title}>{notice.title}</h2>
-            <div className={styles.details}>
-              <p>Popularity: {notice.popularity}</p>
-              <p>Name: {notice.name}</p>
-              <p>Birthday: {notice.birthday}</p>
-              <p>Sex: {notice.sex}</p>
-              <p>Species: {notice.species}</p>
-              <p>Category: {notice.category}</p>
-              <p>Comment: {notice.comment}</p>
+            <div className={styles.imageContainer}>
+              <div className={styles.categoryBadge}>{notice.category}</div>
+              <img
+                src={notice.imgURL || "/img/pappy.png"}
+                alt={notice.title}
+                className={styles.image}
+              />
             </div>
+
+            <h2 className={styles.title}>{notice.title}</h2>
+            <div className={styles.ratingContainer}>
+              <div className={styles.rating}>
+                {[...Array(maxStars)].map((_, i) => (
+                  <span
+                    key={i}
+                    className={
+                      i < filledStars ? styles.filledStar : styles.emptyStar
+                    }
+                  >
+                    <svg className={styles.star}>
+                      <use
+                        href={
+                          i < filledStars
+                            ? "/sprite.svg#icon-star1"
+                            : "/sprite.svg#icon-star-none"
+                        }
+                      ></use>
+                    </svg>
+                  </span>
+                ))}
+              </div>
+
+              <p className={styles.ratingNumber}>{notice.popularity}</p>
+            </div>
+
+            <div className={styles.details}>
+              <p>
+                <span>Name:</span> {notice.name}
+              </p>
+              <p>
+                <span>Birthday:</span> {notice.birthday}
+              </p>
+              <p>
+                <span>Sex:</span>
+                {notice.sex}
+              </p>
+              <p>
+                <span>Species:</span>
+                {notice.species}
+              </p>
+            </div>
+            <p className={styles.comment}>{notice.comment}</p>
+            <p className={styles.noticePrice}>
+              {notice.price ? `$${notice.price}` : "N/A"}
+            </p>
             <div className={styles.actions}>
-              <button className={styles.addRemoveBtn}>Add to/Remove</button>
-              <a
-                href={`tel:${notice.user?.phone}`}
-                className={styles.contactBtn}
+              <button
+                className={styles.addRemoveBtn}
+                onClick={handleFavoriteToggle}
               >
-                Contact
-              </a>
+                {isFavorite ? "Remove from " : "Add to"}
+                <svg className={styles.favoriteIcon}>
+                  <use
+                    href={
+                      isFavorite
+                        ? "/sprite.svg#icon-heart-filled"
+                        : "/sprite.svg#icon-heart-2"
+                    }
+                  ></use>
+                </svg>
+              </button>
+              <button
+                className={styles.contactBtn}
+                type="button" // Убедитесь, что тип кнопки "button", чтобы не отправлялась форма случайно
+                onClick={handleContactButtonClick} // Добавим обработчик клика
+              >
+                {isEmailButtonActive ? notice.user?.email : "Contact"}{" "}
+                {/* Условный рендеринг текста кнопки */}
+              </button>
             </div>
           </>
         ) : (

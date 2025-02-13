@@ -1,15 +1,30 @@
-import ModalAttention from "../ModalAttention/ModalAttention";
-import ModalNotice from "../ModalNotice/ModalNotice";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "./NoticesItem.module.css";
+import { addFavorite, removeFavorite } from "@/redux/noticesSlice";
+import { fetchUserData } from "@/redux/userSlice";
 
-const NoticesItem = ({
-  notices,
-  closeModal,
-  handleLearnMoreClick,
-  isModalOpen,
-  modalType,
-  noticeId,
-}) => {
+const NoticesItem = ({ notices, handleLearnMoreClick }) => {
+  const dispatch = useDispatch();
+  const token = useSelector((state) => state.auth.token);
+  const userData = useSelector((state) => state.user.userData);
+  const favorites = userData?.noticesFavorites || [];
+
+  const isFavorite = (id) => {
+    return favorites.some((fav) => fav._id === id);
+  };
+
+  const handleFavoriteToggle = (id) => {
+    if (!token) return;
+    if (isFavorite(id)) {
+      dispatch(removeFavorite({ id, token })).then(() => {
+        dispatch(fetchUserData());
+      });
+    } else {
+      dispatch(addFavorite({ id, token })).then(() => {
+        dispatch(fetchUserData());
+      });
+    }
+  };
   return (
     <div className={styles.listContainer}>
       {notices.length === 0 ? (
@@ -64,9 +79,19 @@ const NoticesItem = ({
               >
                 Learn more
               </button>
-              <button className={styles.favoriteButton}>
+              <button
+                className={styles.favoriteButton}
+                type="button"
+                onClick={() => handleFavoriteToggle(notice._id)}
+              >
                 <svg className={styles.favoriteIcon}>
-                  <use href="/sprite.svg#icon-heart-1"></use>
+                  <use
+                    href={
+                      isFavorite(notice._id)
+                        ? "/sprite.svg#icon-heart-filled"
+                        : "/sprite.svg#icon-heart-1"
+                    }
+                  ></use>
                 </svg>
               </button>
             </div>

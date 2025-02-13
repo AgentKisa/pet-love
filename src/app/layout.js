@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/components/Header/Header";
 import ClientProvider from "@/components/ClientProvider/ClientProvider";
 import { Toaster } from "react-hot-toast";
+import ReduxProvider from "@/components/ReduxProvider/ReduxProvider";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -18,11 +19,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${manrope.variable}`}>
-        <ClientProvider>
-          <Header />
-          <Toaster />
-          {children}
-        </ClientProvider>
+        <ReduxProvider>
+          <ClientProvider>
+            <Header />
+            <Toaster />
+            {children}
+          </ClientProvider>
+        </ReduxProvider>
       </body>
     </html>
   );

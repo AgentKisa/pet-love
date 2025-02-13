@@ -62,9 +62,9 @@ const NoticesFilters = ({ onFilterChange }) => {
     };
 
     if (sortOption === "byPopularity") {
-      filters.byPopularity = true;
+      filters.byPopularity = false; // Меняем на false
     } else if (sortOption === "byNotPopularity") {
-      filters.byPopularity = false;
+      filters.byPopularity = true; // Меняем на true
     } else if (sortOption === "byPrice") {
       filters.byPrice = true;
     } else if (sortOption === "byHighPrice") {
