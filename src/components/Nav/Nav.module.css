@@ -1,13 +1,19 @@
 .nav {
     display: flex;
-    gap: 2rem;
+    gap: 10px;
+
 }
 
 .navLink {
     text-decoration: none;
-    color: #333;
+    color: #262626;
+    font-size: 16px;
     font-weight: 500;
-    font-size: 1rem;
+    line-height: 20px;
+    letter-spacing: -0.48px;
+    border-radius: 30px;
+    border: 1px solid rgba(38, 38, 38, 0.15);
+    padding: 15px 20px;
 }
 
 .navLink:hover {
@@ -15,13 +21,20 @@
 }
 
 .homeNavLink {
-    color: #988300 !important;
+    color: #FFF;
     font-size: 16px;
-    font-weight: 700;
-    text-transform: uppercase;
-    text-shadow: 0 2px 4px rgba(255, 64, 15, 0.1);
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: -0.48px;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.40);
 }
 
 .navLink:hover {
-    color: #FF400F !important;
+    color: rgb(222, 222, 36);
+}
+
+.active {
+    border: 1px solid #f6b83d !important;
+
 }

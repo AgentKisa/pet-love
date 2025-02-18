@@ -288,12 +288,30 @@ const NoticesFilters = ({ onFilterChange }) => {
     <div className={styles.filtersContainer}>
       <div className={styles.filterRowContainer2}>
         <div className={styles.filterRow}>
-          <SearchField
-            value={keyword}
-            onChange={setKeyword}
-            placeholder="Search"
-            className={styles.searchField}
-          />
+          <div className={styles.searchContainer}>
+            <SearchField
+              value={keyword}
+              onChange={setKeyword}
+              placeholder="Search"
+              className={styles.searchField}
+            />
+            {keyword && (
+              <button
+                type="button"
+                onClick={() => setKeyword("")}
+                className={styles.clearButton}
+              >
+                <svg className={styles.searchIcon}>
+                  <use href="/sprite.svg#icon-cross"></use>
+                </svg>
+              </button>
+            )}
+            <button type="submit" className={styles.searchButton}>
+              <svg className={styles.searchIcon}>
+                <use href="/sprite.svg#icon-search-1"></use>
+              </svg>
+            </button>
+          </div>
         </div>
 
         <div className={styles.filterRow}>

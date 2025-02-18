@@ -6,7 +6,7 @@ const NewsItem = ({ newsItem }) => {
     .replace(/-/g, "/");
   return (
     <li className={styles.newsItem}>
-      <img src={newsItem.avatar} alt={newsItem.title} />
+      <img src={newsItem.imgUrl} alt={newsItem.title} />
       <div className={styles.content}>
         <h2>{newsItem.title}</h2>
         <p>{newsItem.text}</p>

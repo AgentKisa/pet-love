@@ -1,8 +1,6 @@
 .profileContainer {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    padding: 40px;
+    gap: 32px;
+    padding-top: 32px;
     background: #F9F9F9;
 }

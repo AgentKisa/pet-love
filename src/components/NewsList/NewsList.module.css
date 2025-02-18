@@ -1,8 +1,8 @@
 .newsList {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
-    row-gap: 30px;
+    gap: 35px;
+    row-gap: 40px;
     list-style: none;
     padding: 0;
     width: 1300px;

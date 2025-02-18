@@ -1,0 +1,72 @@
+.myNoticesContainer {
+    padding: 20px;
+}
+
+.listContainer {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 24px;
+
+}
+
+.tabs {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.tab {
+    padding: 10px 20px;
+    border: none;
+    background: #f0f0f0;
+    cursor: pointer;
+    border-radius: 30px;
+    margin-right: 10px;
+    transition: background 0.3s;
+}
+
+.tab:hover {
+    background: #f5f5f5;
+}
+
+.activeTab {
+    background: #f6b83d;
+    color: #fff;
+}
+
+.noticesList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.scrollContainer {
+    max-height: 868px;
+    width: 800px;
+    overflow-y: auto;
+    /* Это свойство все еще актуально для SimpleBar */
+}
+
+/* Стилизация SimpleBar */
+.simplebar-scrollbar:before {
+    background: rgba(246, 184, 61, 0.5);
+}
+
+.simplebar-track.simplebar-vertical {
+    width: 8px;
+}
+
+.simplebar-track .simplebar-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.simplebar-track.simplebar-horizontal .simplebar-scrollbar:before {
+    background: rgba(246, 184, 61, 0.5);
+}
+
+.noFavorites {
+    font-size: 16px;
+    color: #666;
+    margin-top: 20px;
+}

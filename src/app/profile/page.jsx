@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUserData } from "@/redux/userSlice";
 import styles from "./Profile.module.css";
+import MyNotices from "@/components/MyNotices/MyNotices";
 
 const ProfilePage = () => {
   const dispatch = useDispatch();
@@ -29,7 +30,7 @@ const ProfilePage = () => {
   return (
     <div className={styles.profileContainer}>
       <UserCard />
-      {/* <MyNotices /> */}
+      <MyNotices />
     </div>
   );
 };

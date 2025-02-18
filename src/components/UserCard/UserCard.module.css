@@ -1,5 +1,5 @@
 .userCard {
-    width: 520px;
+    min-width: 520px;
     height: 674px;
     padding: 40px;
     border-radius: 60px;

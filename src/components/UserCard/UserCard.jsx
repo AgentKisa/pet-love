@@ -8,7 +8,6 @@ import EditUserBtn from "../EditUserBtn/EditUserBtn";
 import PetsBlock from "../PetsBlock/PetsBlock";
 import LogOutBtn from "../LogOutBtn/LogOutBtn";
 import styles from "./UserCard.module.css";
-// import ModalEditUser from "./ModalEditUser";
 
 const UserCard = () => {
   const dispatch = useDispatch();

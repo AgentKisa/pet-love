@@ -149,3 +149,22 @@
     width: 18px;
     height: 18px;
 }
+
+/* Пример стилей для кнопки удаления */
+.removeFavoriteButton {
+    border: none;
+    cursor: pointer;
+    border-radius: 30px;
+    background: #FFF4DF;
+    padding: 13px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+}
+
+.trashIcon {
+    width: 18px;
+    height: 18px;
+
+}

@@ -3,15 +3,39 @@
     gap: 1rem;
 }
 
-.navLink {
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-    font-size: 1rem;
+
+
+.navLinkRegistr {
+    color: #F6B83D;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: -0.48px;
+    text-transform: uppercase;
+    border-radius: 30px;
+    background: #FFF4DF;
+    padding: 15px 20px;
 }
 
-.navLink:hover {
-    color: #0070f3;
+.navLinkLogin {
+    border-radius: 30px;
+    background: #F6B83D;
+    padding: 15px 35px;
+    color: #FFF;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: -0.48px;
+    text-transform: uppercase;
+}
+
+.navLinkRegistr:hover {
+    background: #FBE7C1;
+}
+
+.navLinkLogin:hover {
+    background: #FFF4DF;
+    color: #F6B83D;
 }
 
 .active {
@@ -19,15 +43,35 @@
     font-weight: bold;
 }
 
-.homeAuthNav .navLink {
-    color: #988300 !important;
-    border: 2px solid #FF400F;
-    padding: 8px 24px;
-    border-radius: 40px;
-    transition: all 0.3s;
+.homeAuthNavLogin {
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.40);
+    background: #F6B83D;
+    color: #FFF;
+    font-family: Manrope;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: -0.48px;
+    text-transform: uppercase;
 }
 
-.homeAuthNav .navLink:hover {
-    background: #FF400F;
-    color: white !important;
+.homeAuthNavRegistr {
+    border-radius: 30px;
+    background: #FFF4DF;
+    color: #F6B83D;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: -0.48px;
+    text-transform: uppercase;
+}
+
+.homeAuthNavLogin:hover {
+    background: #FFF4DF;
+    color: #F6B83D;
+}
+
+.homeAuthNavRegistr:hover {
+    background: #FBE7C1;
 }

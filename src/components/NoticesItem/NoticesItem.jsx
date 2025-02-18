@@ -3,7 +3,17 @@ import styles from "./NoticesItem.module.css";
 import { addFavorite, removeFavorite } from "@/redux/noticesSlice";
 import { fetchUserData } from "@/redux/userSlice";
 
-const NoticesItem = ({ notices, handleLearnMoreClick }) => {
+const NoticesItem = ({
+  notices,
+  handleLearnMoreClick,
+  isFavoriteTab,
+  onRemoveFavorite,
+  gap,
+  padding,
+  width,
+  justifyContent,
+  showActionButton = true, // Добавляем проп
+}) => {
   const dispatch = useDispatch();
   const token = useSelector((state) => state.auth.token);
   const userData = useSelector((state) => state.user.userData);
@@ -25,17 +35,23 @@ const NoticesItem = ({ notices, handleLearnMoreClick }) => {
       });
     }
   };
+
   return (
-    <div className={styles.listContainer}>
+    <div className={styles.listContainer} style={{ gap, justifyContent }}>
       {notices.length === 0 ? (
         <p>No notices found.</p>
       ) : (
-        notices.map((notice) => (
-          <div key={notice._id} className={styles.noticeItem}>
+        notices.map((notice, index) => (
+          <div
+            key={`${notice._id}-${index}`}
+            className={styles.noticeItem}
+            style={{ padding, width: width?.item }}
+          >
             <img
               src={notice.imgURL}
               alt={notice.title}
               className={styles.noticeImage}
+              style={{ width: width?.image }}
             />
             <div className={styles.noticeInfo}>
               <div className={styles.noticeHeader}>
@@ -74,26 +90,42 @@ const NoticesItem = ({ notices, handleLearnMoreClick }) => {
             <div className={styles.noticeActions}>
               <button
                 className={styles.learnMore}
+                style={{ padding: "12px 79px" }}
                 type="button"
                 onClick={() => handleLearnMoreClick(notice._id)}
               >
                 Learn more
               </button>
-              <button
-                className={styles.favoriteButton}
-                type="button"
-                onClick={() => handleFavoriteToggle(notice._id)}
-              >
-                <svg className={styles.favoriteIcon}>
-                  <use
-                    href={
-                      isFavorite(notice._id)
-                        ? "/sprite.svg#icon-heart-filled"
-                        : "/sprite.svg#icon-heart-1"
-                    }
-                  ></use>
-                </svg>
-              </button>
+              {showActionButton &&
+                (isFavoriteTab ? (
+                  // Если это вкладка "My favorites pets" – показываем кнопку удаления
+                  <button
+                    className={styles.removeFavoriteButton}
+                    type="button"
+                    onClick={() => onRemoveFavorite(notice._id)}
+                  >
+                    <svg className={styles.trashIcon}>
+                      <use href="/sprite.svg#icon-trash-2"></use>
+                    </svg>
+                  </button>
+                ) : (
+                  // Иначе – обычная кнопка для переключения избранного
+                  <button
+                    className={styles.favoriteButton}
+                    type="button"
+                    onClick={() => handleFavoriteToggle(notice._id)}
+                  >
+                    <svg className={styles.favoriteIcon}>
+                      <use
+                        href={
+                          isFavorite(notice._id)
+                            ? "/sprite.svg#icon-heart-filled"
+                            : "/sprite.svg#icon-heart-1"
+                        }
+                      ></use>
+                    </svg>
+                  </button>
+                ))}
             </div>
           </div>
         ))

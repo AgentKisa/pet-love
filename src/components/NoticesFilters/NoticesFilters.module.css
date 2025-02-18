@@ -44,14 +44,48 @@
     fill: none;
 }
 
-/* Контейнер строки фильтров */
 .filterRow {
     display: flex;
     gap: 16px;
     align-items: center;
 }
 
-/* Убираем фон у label – фон задаем для span */
+.searchContainer {
+    position: relative;
+    width: 100%;
+    /* или задайте фиксированную ширину */
+}
+
+.searchField {
+    width: 100%;
+    padding-right: 60px;
+    /* Оставляем место для кнопок */
+}
+
+.searchButton,
+.clearButton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchButton {
+    right: 15px;
+    /* Позиция кнопки поиска */
+}
+
+.clearButton {
+    right: 35px;
+    /* Позиция кнопки очистки */
+}
+
 .checkboxLabel {
     display: inline-flex;
     align-items: center;
@@ -59,7 +93,7 @@
     user-select: none;
 }
 
-/* Стили для текстового блока, который выглядит как кнопка */
+
 .checkboxLabel span {
     display: flex;
     padding: 14px 20px;
@@ -75,12 +109,12 @@
     gap: 8px;
 }
 
-/* Скрываем стандартный чекбокс */
+
 .customCheckbox {
     display: none;
 }
 
-/* При активном состоянии изменяем фон и цвет текста */
+
 .customCheckbox:checked+span {
     background: #F6B83D;
     color: #ffffff;

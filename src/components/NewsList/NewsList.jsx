@@ -8,7 +8,13 @@ const NewsList = () => {
   return (
     <ul className={styles.newsList}>
       {news.map((item) => (
-        <NewsItem key={item._id} newsItem={item} />
+        <NewsItem
+          key={item._id}
+          newsItem={item}
+          gap="32px"
+          padding="24px"
+          width={{ item: "363px", image: "315px" }}
+        />
       ))}
     </ul>
   );

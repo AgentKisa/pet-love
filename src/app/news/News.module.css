@@ -2,6 +2,49 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
-    /* Adjust the margin as needed */
+    margin-bottom: 60px;
+}
+
+.container {
+    padding: 96px 63px;
+}
+
+.searchContainer {
+    position: relative;
+}
+
+.searchField {
+    width: 100%;
+    padding-right: 60px;
+}
+
+.searchButton,
+.clearButton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchButton {
+    right: 15px;
+    /* Позиция кнопки поиска */
+}
+
+.clearButton {
+    right: 35px;
+    /* Позиция кнопки очистки */
+}
+
+.searchIcon {
+    width: 18px;
+    height: 18px;
+    stroke: #262626;
+    fill: none;
 }

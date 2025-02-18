@@ -7,16 +7,20 @@ const AuthNav = ({ isHomePage }) => {
       className={`${styles.authNav} ${isHomePage ? styles.homeAuthNav : ""}`}
     >
       <Link
-        href="/register"
-        className={`${styles.navLink} ${isHomePage ? styles.homeAuthNav : ""}`}
-      >
-        Registration
-      </Link>
-      <Link
         href="/login"
-        className={`${styles.navLink} ${isHomePage ? styles.homeAuthNav : ""}`}
+        className={`${styles.navLinkLogin} ${
+          isHomePage ? styles.homeAuthNavLogin : ""
+        }`}
       >
         Log in
+      </Link>
+      <Link
+        href="/register"
+        className={`${styles.navLinkRegistr} ${
+          isHomePage ? styles.homeAuthNavRegistr : ""
+        }`}
+      >
+        Registration
       </Link>
     </div>
   );
