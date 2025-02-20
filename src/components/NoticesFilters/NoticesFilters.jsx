@@ -302,7 +302,7 @@ const NoticesFilters = ({ onFilterChange }) => {
                 className={styles.clearButton}
               >
                 <svg className={styles.searchIcon}>
-                  <use href="/sprite.svg#icon-cross"></use>
+                  <use href="/sprite.svg#icon-x-2"></use>
                 </svg>
               </button>
             )}

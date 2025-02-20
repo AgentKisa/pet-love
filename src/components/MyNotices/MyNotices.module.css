@@ -42,7 +42,7 @@
 
 .scrollContainer {
     max-height: 868px;
-    width: 800px;
+    width: 700px;
     overflow-y: auto;
     /* Это свойство все еще актуально для SimpleBar */
 }

@@ -22,7 +22,7 @@ export const logoutUser = createAsyncThunk(
   "auth/logoutUser",
   async (_, { getState, rejectWithValue }) => {
     try {
-      const token = getState().auth.token; // Получаем токен из состояния Redux
+      const token = getState().auth.token;
       if (!token) {
         throw new Error("No token available");
       }
@@ -37,7 +37,7 @@ export const logoutUser = createAsyncThunk(
         }
       );
 
-      console.log(response.data.message); // Отладочное сообщение
+      console.log(response.data.message);
       return response.data;
     } catch (error) {
       return rejectWithValue(
@@ -47,7 +47,6 @@ export const logoutUser = createAsyncThunk(
   }
 );
 
-// Инициализация состояния с проверкой localStorage
 const initialState = {
   user: null,
   token: typeof window !== "undefined" ? localStorage.getItem("token") : null,
@@ -72,24 +71,29 @@ const authSlice = createSlice({
       })
       .addCase(loginUser.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.user = action.payload;
+        state.user = action.payload.user; // Убедитесь, что userData обновляется
         state.token = action.payload.token;
         localStorage.setItem("token", action.payload.token);
       })
       .addCase(loginUser.rejected, (state, action) => {
         state.status = "failed";
-        state.error = action.payload.message;
+        state.error = action.payload?.message || "Login failed";
+        state.user = null;
+        state.token = null;
+        localStorage.removeItem("token");
       })
       .addCase(logoutUser.fulfilled, (state) => {
         state.user = null;
         state.token = null;
+        state.status = "idle";
+        state.error = null;
         localStorage.removeItem("token");
       })
       .addCase(logoutUser.rejected, (state, action) => {
         state.user = null;
         state.token = null;
         state.status = "idle";
-        state.error = action.payload;
+        state.error = action.payload?.message || "Logout failed";
         localStorage.removeItem("token");
       });
   },

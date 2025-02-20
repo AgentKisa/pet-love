@@ -1,3 +1,4 @@
+/* AddPetForm.module.css */
 .formContainer {
     width: 592px;
     height: 654px;
@@ -22,13 +23,16 @@
     margin-bottom: 18px;
     display: flex;
     flex-direction: column;
+    position: relative;
+    /* Добавляем relative позиционирование */
 }
 
 .fieldSex {
     display: flex;
     flex-direction: column;
+    position: relative;
+    /* Добавляем relative позиционирование и здесь, если ошибки есть для sex */
 }
-
 
 /* Стили для DatePicker и иконки календаря */
 
@@ -43,7 +47,6 @@
     letter-spacing: -0.48px;
     border-radius: 30px;
     border: 1px solid rgba(38, 38, 38, 0.15);
-
 }
 
 .field input[type="text"]::placeholder {
@@ -57,6 +60,7 @@
 .field2 {
     width: 210px;
     position: relative;
+    /* Добавляем relative позиционирование */
     padding: 16px 0 16px 16px;
     color: #26262680;
     font-size: 16px;
@@ -66,7 +70,6 @@
     border-radius: 30px;
     border: 1px solid #26262626;
 }
-
 
 /* Стили для выпадающего списка вида питомца */
 .select {
@@ -111,7 +114,13 @@
 .error {
     color: red;
     font-size: 14px;
-    margin-top: 5px;
+    position: absolute;
+    /* Абсолютное позиционирование */
+    bottom: -20px;
+    /* Расположение под инпутом, регулируйте значение по необходимости */
+    left: 0;
+    margin-top: 0;
+    /* Убираем верхний margin */
 }
 
 .buttons {
@@ -155,6 +164,8 @@
     align-items: center;
     gap: 10px;
     margin-bottom: 15px;
+    position: relative;
+    /* Добавляем relative позиционирование для ошибки внутри avatarUpload */
 }
 
 .avatarInput {
@@ -298,11 +309,17 @@
     font-size: 12px;
 }
 
+
 .avatarUpload {
     display: flex;
     align-items: center;
     gap: 10px;
+    position: relative;
+    /* Добавляем relative позиционирование для ошибки внутри avatarUpload */
+    margin-bottom: 18px;
+    /* Уже есть, просто для наглядности, что можно и тут сделать relative */
 }
+
 
 .avatarInput {
     flex-grow: 1;

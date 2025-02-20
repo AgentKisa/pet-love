@@ -39,7 +39,7 @@ const NoticesPage = () => {
       {loading ? (
         <p>Loading notices...</p>
       ) : error ? (
-        <p>Error: {error}</p>
+        <p>Error: {error.message}</p>
       ) : (
         <NoticesList notices={notices} />
       )}

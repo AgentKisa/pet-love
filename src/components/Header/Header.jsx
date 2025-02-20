@@ -28,7 +28,11 @@ const Header = () => {
       <div className={styles.container}>
         <Logo isHomePage={isHomePage} />
         <Nav isHomePage={isHomePage} />
-        {token ? <UserNav /> : <AuthNav isHomePage={isHomePage} />}
+        {token ? (
+          <UserNav isHomePage={isHomePage} />
+        ) : (
+          <AuthNav isHomePage={isHomePage} />
+        )}
       </div>
     </header>
   );

@@ -90,7 +90,7 @@ const MyNotices = () => {
           {status === "loading" ? (
             <p>Loading...</p>
           ) : error ? (
-            <p className={styles.error}>Error: {error}</p>
+            <p className={styles.error}>Error: {error.message}</p>
           ) : (
             renderNotices()
           )}
@@ -100,7 +100,7 @@ const MyNotices = () => {
           {status === "loading" ? (
             <p>Loading...</p>
           ) : error ? (
-            <p className={styles.error}>Error: {error}</p>
+            <p className={styles.error}>Error: {error.message}</p>
           ) : (
             renderNotices()
           )}

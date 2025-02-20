@@ -29,7 +29,6 @@
     display: flex;
     gap: 10px;
     border-radius: 30px;
-    border: 1px solid rgba(38, 38, 38, 0.15);
     background-color: #ffffff;
     color: #262626;
     font-size: 16px;
@@ -40,7 +39,12 @@
     width: 100%;
 }
 
-.userBlock {
-    display: flex;
-    flex-direction: column;
+/* Серый бордер, если данных нет */
+.emptyBorder {
+    border: 1px solid rgba(38, 38, 38, 0.15);
+}
+
+/* Желтый бордер, если данные есть */
+.filledBorder {
+    border: 1px solid #FFD700;
 }

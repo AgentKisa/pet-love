@@ -1,0 +1,118 @@
+.container {
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+.title {
+    color: #2B2B2A;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+}
+
+.petList {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 0;
+    margin: 0;
+}
+
+.petItem {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 440px;
+    height: 130px;
+    gap: 16px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 20px;
+    border: 1px solid #e0e0e0;
+}
+
+.petImage {
+    width: 90px;
+    height: 90px;
+    border-radius: 100px;
+    object-fit: cover;
+}
+
+.petInfo {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin: 14px 0px;
+}
+
+.petTitle {
+    color: #2B2B2A;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 18px;
+}
+
+.petDescription {
+    color: #262626;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 14px;
+    letter-spacing: -0.24px;
+}
+
+.span {
+    color: rgba(38, 38, 38, 0.50);
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 14px;
+    letter-spacing: -0.2px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 4px;
+}
+
+.petDetails {
+    display: flex;
+    gap: 27px;
+}
+
+.petHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.removeButton {
+    width: 38px;
+    height: 38px;
+    background: #FFF4DF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.removeButton:hover {
+    background: #ffa500;
+}
+
+.trashIcon {
+    width: 18px;
+    height: 18px;
+    fill: #fff;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}

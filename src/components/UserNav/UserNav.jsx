@@ -4,11 +4,11 @@ import UserBar from "../UserBar/UserBar";
 import LogOutBtn from "../LogOutBtn/LogOutBtn";
 import styles from "./UserNav.module.css";
 
-const UserNav = () => {
+const UserNav = ({ isHomePage }) => {
   return (
     <div className={styles.userNav}>
       <LogOutBtn />
-      <UserBar />
+      <UserBar isHomePage={isHomePage} />
     </div>
   );
 };

@@ -53,13 +53,14 @@ const AddPetForm = () => {
     formState: { errors },
     control,
   } = useForm({
+    mode: "all",
     resolver: yupResolver(validationSchema),
     defaultValues: {
       title: "",
       name: "",
       imgURL: "",
       species: "",
-      birthday: "",
+      birthday: null,
       sex: "",
     },
   });
@@ -136,7 +137,7 @@ const AddPetForm = () => {
   const handleDateChange = (date) => {
     setSelectedDate(date);
     const formattedDate = format(date, "yyyy-MM-dd"); // гарантированный формат
-    setValue("birthday", formattedDate);
+    setValue("birthday", formattedDate, { shouldValidate: true });
   };
 
   const handleSexChange = (sex) => {
@@ -215,37 +216,52 @@ const AddPetForm = () => {
 
       <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
         {/* Выбор пола питомца */}
-        <div className={styles.fieldSex}>
-          <div className={styles.radioGroup}>
-            {sexOptions.map((option) => (
-              <label
-                key={option.value}
-                className={`${styles.radioLabel} ${styles[option.value]} ${
-                  selectedSex === option.value ? styles.selected : ""
-                }`}
-              >
-                <input
-                  type="radio"
-                  value={option.value}
-                  checked={selectedSex === option.value}
-                  onChange={() => handleSexChange(option.value)}
-                  className={styles.hiddenRadio}
-                />
-                <svg className={styles.sexIcon}>
-                  <use
-                    href={
-                      selectedSex === option.value
-                        ? option.selectedIcon
-                        : option.defaultIcon
-                    }
-                  ></use>
-                </svg>
-                {option.label}
-              </label>
-            ))}
-          </div>
-          {errors.sex && <p className={styles.error}>{errors.sex.message}</p>}
-        </div>
+        <Controller
+          name="sex"
+          control={control}
+          render={({ field }) => {
+            const handleSexChange = (value) => {
+              field.onChange(value); // Обновляем значение в react-hook-form
+              setSelectedSex(value); // Обновляем локальный стейт (для визуальной подсветки)
+            };
+
+            return (
+              <div className={styles.fieldSex}>
+                <div className={styles.radioGroup}>
+                  {sexOptions.map((option) => (
+                    <label
+                      key={option.value}
+                      className={`${styles.radioLabel} ${
+                        styles[option.value]
+                      } ${selectedSex === option.value ? styles.selected : ""}`}
+                    >
+                      <input
+                        type="radio"
+                        value={option.value}
+                        checked={selectedSex === option.value}
+                        onChange={() => handleSexChange(option.value)}
+                        className={styles.hiddenRadio}
+                      />
+                      <svg className={styles.sexIcon}>
+                        <use
+                          href={
+                            selectedSex === option.value
+                              ? option.selectedIcon
+                              : option.defaultIcon
+                          }
+                        ></use>
+                      </svg>
+                      {option.label}
+                    </label>
+                  ))}
+                </div>
+                {errors.sex && (
+                  <p className={styles.error}>{errors.sex.message}</p>
+                )}
+              </div>
+            );
+          }}
+        />
 
         {/* Превью выбранного изображения */}
         <div className={styles.avatarPreview}>
@@ -265,28 +281,45 @@ const AddPetForm = () => {
         </div>
 
         {/* Загрузка изображения */}
-        <div className={styles.avatarUpload}>
-          <input
-            type="text"
-            placeholder="Enter URL"
-            {...register("imgURL")}
-            className={styles.avatarInput}
-            readOnly
-          />
-          <input
-            type="file"
-            accept="image/*"
-            onChange={handleFileChange}
-            className={styles.fileInput}
-            id="fileUpload"
-          />
-          <label htmlFor="fileUpload" className={styles.uploadBtn}>
-            <svg className={styles.uploadIcon} width={18} height={18}>
-              <use href="/sprite.svg#icon-upload-cloud"></use>
-            </svg>
-            Upload photo
-          </label>
-        </div>
+        <Controller
+          name="imgURL"
+          control={control}
+          render={({ field }) => (
+            <div className={styles.avatarUpload}>
+              <input
+                type="text"
+                placeholder="Enter URL"
+                value={field.value}
+                readOnly
+                className={styles.avatarInput}
+              />
+              <input
+                type="file"
+                accept="image/*"
+                onChange={(e) => {
+                  // Вызываем вашу функцию для обработки файла
+                  handleFileChange(e);
+                  // Если нужен файл, можно сохранить имя файла в форме:
+                  const file = e.target.files[0];
+                  if (file) {
+                    field.onChange(file.name);
+                  }
+                }}
+                className={styles.fileInput}
+                id="fileUpload"
+              />
+              <label htmlFor="fileUpload" className={styles.uploadBtn}>
+                <svg className={styles.uploadIcon} width={18} height={18}>
+                  <use href="/sprite.svg#icon-upload-cloud"></use>
+                </svg>
+                Upload photo
+              </label>
+              {errors.imgURL && (
+                <p className={styles.error}>{errors.imgURL.message}</p>
+              )}
+            </div>
+          )}
+        />
 
         {/* Поля ввода остальных данных */}
         <div className={styles.field}>
@@ -351,7 +384,8 @@ const AddPetForm = () => {
                   onChange={(selectedOption) => {
                     setValue(
                       "species",
-                      selectedOption ? selectedOption.value : ""
+                      selectedOption ? selectedOption.value : "",
+                      { shouldValidate: true }
                     );
                   }}
                   value={

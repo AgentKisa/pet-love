@@ -36,7 +36,7 @@ const LogOutBtn = () => {
         onConfirm={handleLogout}
       />
 
-      {error && <p className={styles.error}>{error}</p>}
+      {error && <p className={styles.error}>{error.message}</p>}
     </>
   );
 };

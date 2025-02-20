@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import styles from "./UserBar.module.css";
 
-const UserBar = () => {
+const UserBar = ({ isHomePage }) => {
   const userData = useSelector((state) => state.user.userData);
 
   if (!userData) {
@@ -27,7 +27,13 @@ const UserBar = () => {
             </svg>
           </div>
         )}
-        <span className={styles.userName}>{userName}</span>
+        <span
+          className={`${styles.userName} ${
+            isHomePage ? styles.homeUserName : ""
+          }`}
+        >
+          {userName}
+        </span>
       </Link>
     </div>
   );

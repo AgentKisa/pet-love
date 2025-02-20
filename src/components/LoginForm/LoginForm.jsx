@@ -136,7 +136,7 @@ const LoginForm = () => {
           Log In
         </button>
 
-        {error && <p className={styles.error}>{error}</p>}
+        {error && <p className={styles.error}>{error.message}</p>}
       </form>
       <p className={styles.textAccount}>
         Don't have an account? <Link href="/register"> Register</Link>

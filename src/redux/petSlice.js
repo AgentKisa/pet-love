@@ -1,7 +1,8 @@
+// redux/petSlice.js
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-// Асинхронный thunk для добавления питомца
+// Асинхронный thunk для добавления питомца (уже есть)
 export const addPet = createAsyncThunk(
   "pets/addPet",
   async (petData, { getState, rejectWithValue }) => {
@@ -9,7 +10,6 @@ export const addPet = createAsyncThunk(
     if (!token) {
       return rejectWithValue("No token available");
     }
-
     try {
       const response = await axios.post(
         "https://petlove.b.goit.study/api/users/current/pets/add",
@@ -30,7 +30,31 @@ export const addPet = createAsyncThunk(
   }
 );
 
-// Создаем слайс для работы с питомцами
+// Новый thunk для удаления питомца
+export const removePet = createAsyncThunk(
+  "pets/removePet",
+  async (id, { getState, rejectWithValue }) => {
+    const token = getState().auth.token;
+    if (!token) {
+      return rejectWithValue("No token available");
+    }
+    try {
+      const response = await axios.delete(
+        `https://petlove.b.goit.study/api/users/current/pets/remove/${id}`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+      // Можно вернуть id, чтобы затем удалить его из состояния
+      return id;
+    } catch (error) {
+      return rejectWithValue(
+        error.response ? error.response.data.message : error.message
+      );
+    }
+  }
+);
+
 const petSlice = createSlice({
   name: "pets",
   initialState: {
@@ -39,7 +63,6 @@ const petSlice = createSlice({
     error: null,
   },
   reducers: {
-    // Дополнительные редюсеры, если необходимо
     clearPetsError: (state) => {
       state.error = null;
     },
@@ -52,10 +75,23 @@ const petSlice = createSlice({
       })
       .addCase(addPet.fulfilled, (state, action) => {
         state.status = "succeeded";
-        // Можно добавить нового питомца в список
+        // Добавляем нового питомца в список
         state.pets.push(action.payload);
       })
       .addCase(addPet.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.payload;
+      })
+      .addCase(removePet.pending, (state) => {
+        state.status = "loading";
+        state.error = null;
+      })
+      .addCase(removePet.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        // Удаляем питомца по id
+        state.pets = state.pets.filter((pet) => pet._id !== action.payload);
+      })
+      .addCase(removePet.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.payload;
       });

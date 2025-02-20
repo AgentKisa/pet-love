@@ -6,10 +6,18 @@ export const fetchNotices = createAsyncThunk(
   "notices/fetchNotices",
   async (params, { rejectWithValue }) => {
     try {
+      // Удаляем пустые параметры
+      const filteredParams = Object.fromEntries(
+        Object.entries(params).filter(
+          ([_, value]) => value !== "" && value !== null && value !== undefined
+        )
+      );
+
       const response = await axios.get(
         "https://petlove.b.goit.study/api/notices",
-        { params }
+        { params: filteredParams }
       );
+
       return response.data;
     } catch (err) {
       return rejectWithValue(err.response.data.message);

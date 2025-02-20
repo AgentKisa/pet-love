@@ -1,6 +1,6 @@
 .userCard {
     min-width: 520px;
-    height: 674px;
+    min-height: 910px;
     padding: 40px;
     border-radius: 60px;
     background: #ffffff;

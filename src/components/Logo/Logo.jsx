@@ -4,10 +4,20 @@ import styles from "./Logo.module.css";
 const Logo = ({ isHomePage }) => {
   return (
     <Link
-      href="/"
+      href="/home"
       className={`${styles.logo} ${isHomePage ? styles.homeLogo : ""}`}
     >
-      <img src={isHomePage ? "/img/logo2.png" : "/img/logo.png"} alt="logo" />
+      <div>
+        {isHomePage ? (
+          <svg className={styles.icon2}>
+            <use href="/sprite.svg#icon-logo-2"></use>
+          </svg>
+        ) : (
+          <svg className={styles.icon2}>
+            <use href="/sprite.svg#icon-logo-1"></use>
+          </svg>
+        )}
+      </div>
     </Link>
   );
 };
